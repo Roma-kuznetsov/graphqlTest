@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../../models/user')
 const { events } = require('./merge')
+const config = require('../../config.json')
 
 
 
@@ -58,7 +59,7 @@ module.exports = {
             if(!isEqual){
                 throw new Error('Password is incorrect!');
             };
-            const token = jwt.sign({userId:user.id,email:user.email},'secretKey',{
+            const token = jwt.sign({userId:user.id,email:user.email},config.key,{
                 expiresIn:'24h'
             });
             return{

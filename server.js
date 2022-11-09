@@ -3,11 +3,10 @@ const { graphqlHTTP } = require('express-graphql');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
+const config = require('./config.json')
 const isAuth = require('./middleware/is-auth');
 const graphQlSchema = require('./graphql/schema/index')
 const graphQlResolvers = require('./graphql/resolvers/index')
-
-
 
 
 const app = express();
@@ -22,7 +21,7 @@ app.use('/graphql', graphqlHTTP({
   rootValue: graphQlResolvers
 }));
 
-const DB_URL = `mongodb+srv://Romikr89:Romikrty2000@cluster0.bwkdp89.mongodb.net/?retryWrites=true&w=majority` //scum testNotConnect
+const DB_URL = config.DB_URL //scum testNotConnect
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect(DB_URL)
