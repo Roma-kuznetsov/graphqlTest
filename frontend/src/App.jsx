@@ -1,13 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import style from './App.module.css'
 import MainNavigate from './components/MainNavigate/MainNavigate';
-import AuthPage from './pages/AuthPage';
-import BookingsPage from './pages/BookingsPage';
-import EventsPage from './pages/EventsPage';
+import AuthPage from './pages/AuthPage/AuthPage';
+import BookingsPage from './pages/BookingsPage/BookingsPage';
+import EventsPage from './pages/EventsPage/EventsPage';
 
 function App() {
   return (
-    <>
+    <div className={style.main}>
       <BrowserRouter>
         <MainNavigate />
         <main className={style.main_content}>
@@ -20,7 +20,7 @@ function App() {
         </main>
       </BrowserRouter>
 
-    </>
+    </div>
   );
 }
 

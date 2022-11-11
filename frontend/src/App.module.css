@@ -1,4 +1,8 @@
-
+.main{
+  width: 100vw;
+  height: 100vh;
+  background: #f2f2f2;
+}
 .main_content{
   margin: 6rem 2.5rem;
 }
