@@ -1,22 +1,27 @@
-import './App.css';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import style from './App.module.css'
+import MainNavigate from './components/MainNavigate/MainNavigate';
 import AuthPage from './pages/AuthPage';
-import Test from './pages/Test';
-import EventsPage from './pages/EventsPage';
 import BookingsPage from './pages/BookingsPage';
+import EventsPage from './pages/EventsPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Test />
-      <Routes>
-        <Route path='/' element={<Navigate to="/auth" replace />} />
-        <Route path='/auth' element={<AuthPage />} />
-        <Route path='/events' element={<EventsPage />} />
-        <Route path='/bookings' element={<BookingsPage />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <MainNavigate />
+        <main className={style.main_content}>
+          <Routes>
+            <Route path='/' element={<Navigate to="/auth" replace />} />
+            <Route path='/auth' element={<AuthPage />} />
+            <Route path='/events' element={<EventsPage />} />
+            <Route path='/bookings' element={<BookingsPage />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
+
+    </>
   );
-};
+}
 
 export default App;
